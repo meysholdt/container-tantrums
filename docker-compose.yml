@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  infinite_loop:
+    build:
+      context: .
+      dockerfile: 01InfiniteLoop.dockerfile
+    container_name: infinite_loop_container
+
+  ignoring_signals:
+    build:
+      context: .
+      dockerfile: 02IgnoringSignals.dockerfile
+    container_name: ignoring_signals_container
+
+  zombie_processes:
+    build:
+      context: .
+      dockerfile: 03ZombieProcesses.dockerfile
+    container_name: zombie_processes_container
+
+  file_locking:
+    build:
+      context: .
+      dockerfile: 04FIleLocking.dockerfile
+    container_name: file_locking_container
+
+  io_blocking:
+    build:
+      context: .
+      dockerfile: 05IOBlocking.dockerfile
+    container_name: io_blocking_container
+
+  entry_point:
+    build:
+      context: .
+      dockerfile: 06EntryPoint.dockerfile
+    container_name: entry_point_container
+
+  mount_issues:
+    build:
+      context: .
+      dockerfile: 07MountIssues.dockerfile
+    container_name: mount_issues_container
+    volumes:
+      - /:/host:ro # Bind mount root as read-only to simulate mount issues
+
+  pid1_issues:
+    build:
+      context: .
+      dockerfile: 08PID1Issues.dockerfile
+    container_name: pid1_issues_container
